@@ -31,12 +31,12 @@ function onSearch(e) {
 };
 
 function onLoadMore() {
-    fetchAndMarkUp();
-    onSrollPage()
+    fetchAndMarkUp().then(onSrollPage);
+    // onSrollPage()
 };
 
 function fetchAndMarkUp() {
-    photoApiService.fetchArticles().then(countHits).then(appendArtiklesMarkup);
+   return photoApiService.fetchArticles().then(countHits).then(appendArtiklesMarkup);
 
 }
 
@@ -50,17 +50,13 @@ function clearArtiklesContainer() {
 
 
 
-// function makeupList(data) {
-//    refRoot.innerHTML = data.reduce((acc, el) => acc + `<li>${el.name}</li>`, '');
-// }
-
 function onSrollPage() {
     // photoApiService.fetchArticles().then(hits => {
     //     appendArtiklesMarkup(hits);
         containerEl.scrollIntoView({ behavior: 'smooth', block: 'end' });
 // })
 
-
+// { behavior: 'smooth', block: 'end' }
 };
 
 function hideButton() {
