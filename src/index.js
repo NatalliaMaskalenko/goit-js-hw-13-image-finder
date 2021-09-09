@@ -12,7 +12,7 @@ const photoApiService = new PhotoApiService();
 
 searchFormEl.addEventListener('submit', onSearch);
 btnMoreEl.addEventListener('click', onLoadMore);
-btnMoreEl.addEventListener('click', onSrollPage);
+// btnMoreEl.addEventListener('click', onSrollPage);
 
 function onSearch(e) {
     e.preventDefault();
@@ -32,6 +32,7 @@ function onSearch(e) {
 
 function onLoadMore() {
     fetchAndMarkUp();
+    onSrollPage()
 };
 
 function fetchAndMarkUp() {
@@ -54,10 +55,10 @@ function clearArtiklesContainer() {
 // }
 
 function onSrollPage() {
-    photoApiService.fetchArticles().then(hits => {
-        appendArtiklesMarkup(hits);
+    // photoApiService.fetchArticles().then(hits => {
+    //     appendArtiklesMarkup(hits);
         containerEl.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    })
+// })
 
 
 };
